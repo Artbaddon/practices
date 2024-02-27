@@ -1,0 +1,15 @@
+@layout('layouts/main')
+@set('title','My Posts' )
+
+@section('content')
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">My Post</li>
+    </ol>
+  </nav>
+  <h2 class="text-center">My Posts</h2>
+  @!component('components/posts_list',{ posts })
+</div>
+@endsection

@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.main-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.players-main-container {
+  width: 65%;
+  height: 80vh;
+  display: flex;
+  position: relative;
+}
+#diceImg {
+  position: absolute;
+  z-index: 100;
+  top: 35%;
+  left: 45%;
+}
+
+.player-container {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  background-color: #e4b8f87f;
+}
+.player-1 {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.player-2 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.active {
+  background-color: #e4b8f8d1;
+}
+.player-title {
+  padding: 6rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 3rem;
+}
+.button {
+  border-radius: 20px;
+  width: fit-content;
+  padding: 0 2% 0 2%;
+  height: 10%;
+  background-color: #deb5f3;
+  font-size: 1.3rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.reset-btn {
+  position: absolute;
+  z-index: 100;
+  top: 6%;
+  left: 40%;
+}
+.roll-btn {
+  position: absolute;
+  z-index: 100;
+  bottom: 30%;
+  left: 40%;
+}
+.hold-btn {
+  position: absolute;
+  z-index: 100;
+  bottom: 15%;
+  left: 44%;
+}
+.button:hover {
+  background-color: #e2b0fa;
+}
+.points {
+  text-align: center;
+  font-size: 5rem;
+}
+.points-acum-container {
+  background-color: #3c1053;
+  height: 130px;
+  width: 200px;
+  position: absolute;
+  left: 30%;
+  bottom: 15%;
+  border-radius: 15px;
+}
+.points-acum {
+  text-align: center;
+  padding: 1.5%;
+  font-size: 2.5rem;
+}
+.title-acum {
+  text-align: center;
+  padding: 6%;
+}

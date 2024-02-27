@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap");
+
+* {
+  font-family: "Jost", sans-serif;
+}
+body {
+  margin: 0;
+}
+dialog {
+  width: 100vw;
+  border: none;
+  background: none;
+}
+.main-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 1%;
+  box-sizing: border-box;
+  margin: 0;
+
+  justify-content: center;
+}
+.form-container {
+  min-width: 350px;
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.img-container img {
+  height: 100%;
+}
+
+.page-buttons button {
+  border: none;
+  background: none;
+  color: gray;
+
+  font-size: 1.4rem;
+}
+button.btn-active {
+  color: black;
+  border-bottom: 2px solid black;
+
+  font-size: 1.6rem;
+  animation: myAnim 0.5s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.page-buttons button:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.form {
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  gap: 10px;
+}
+
+.form input,
+.form label {
+  display: block;
+  width: 95%;
+  padding: 2%;
+}
+
+.form label {
+  font-size: 1.1rem;
+  position: relative;
+}
+.form label i.icon {
+  position: absolute;
+  font-size: 2rem;
+  top: 38%;
+  right: 3%;
+}
+
+.form label i.icon-valid {
+  color: green;
+  padding: 2px;
+}
+.form label i.icon-invalid {
+  color: red;
+  padding: 2px;
+}
+
+.form input[type="password"] {
+  font-weight: bolder;
+}
+.form input {
+  border: none;
+  background: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 2px;
+  font-size: 1.2rem;
+}
+.form-group {
+  display: flex;
+
+  width: 100%;
+}
+.form-group input:not([type="email"], .password-login) {
+  padding: 5%;
+}
+.form input[type="email"] {
+  padding: 3%;
+}
+.form input:focus {
+  border-radius: 20px;
+  outline: 3px groove blue;
+}
+hr {
+  width: 100%;
+  border: 1px solid black;
+}
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+.btn-submit {
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  padding: 2px;
+  width: 50%;
+  cursor: pointer;
+}
+.btn-submit:disabled{
+  background-color: gray;
+}
+
+input.valid-input:focus {
+  outline-color: green;
+}
+input.valid-input {
+  border: 1px solid green;
+  border-radius: 20px;
+}
+
+input.invalid-input:focus {
+  outline-color: red;
+}
+input.invalid-input {
+  border: 1px solid red;
+  border-radius: 20px;
+}
+
+.validator-tooltip {
+  position: absolute;
+  width: 100%;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  z-index: 10;
+  color: white;
+  padding: 1%;
+}
+.validator-tooltip {
+  font-size: 1rem;
+}
+.validator-tooltip ul {
+  list-style-type: none;
+  padding-left: 3px;
+}
+.validator-tooltip ul li::after {
+  content: ".";
+}
+.validator-tooltip i {
+  font-size: 1.5rem;
+}

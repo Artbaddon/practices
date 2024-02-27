@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+
+</head>
+
+<body>
+  <div>
+    <a href="{{ route('home') }}">Home</a>
+    <a href="{{ route('hw') }}">Hello World</a>
+    <a href="/hello">Hello</a>
+  </div>
+  <div>
+    @set('name','Artbaddon' )
+
+    <p>@{{ name }}</p>
+
+    {{ '<p>This will not use HTML</p>'}}
+    {{{'<p>This will use HTML</p>'}}}
+  </div>
+
+
+
+</body>
+
+</html>

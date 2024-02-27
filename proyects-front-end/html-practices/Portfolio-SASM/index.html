@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+      Portfolio Sebastian Sotelo - Software engineer with 1 year of experience
+    </title>
+
+    <meta
+      name="description"
+      content="Portfolio of Sebastian Sotelo, 1 year of experience as a Software Engineer"
+    />
+
+    <!-- OPEN GRAPH -->
+    <!-- <meta
+      property="og:title"
+      content="Portfolio of Sebastian Sotelo Sebastian Engineer"
+    />
+    <meta
+      property="og:image:alt"
+      content="./images/image1.jpg"
+      alt="A photo of Sebastian Sotelo"
+    />
+    <meta name="alternate" href="https://artbaddon.dev/es" />
+    <meta name="cannonical" href="https://artbaddon.dev" />
+  
+    <meta name="theme-color" content="#888f" /> -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="./images/image1.jpg" type="image/jpg" />
+
+    <style>
+      h1 {
+        /*  color: rgba(0, 0, 0, 50%);  legacy */
+        color: rgb(0 0 0 / 50%); /* Recomendado*/
+        /* color:  hsl(30,100%,50%); */
+        /* color: oklch(348 38% / 50%); */
+      }
+      body {
+        background-color: rgb(210 239 250);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      .link {
+        color: red;
+      }
+      .link:hover {
+        color: black;
+        outline: 3px solid black;
+      }
+      li:first-child {
+        color: green;
+      }
+      li.last-child {
+        color: purple;
+      }
+      #show {
+        background-color: burlywood;
+        color: white;
+        border: 0;
+      }
+    </style>
+  </head>
+  <!--
+    Semantic HTML: HTML with meaning, describe the content in the right way
+    example:
+    p: describe the content of a paragraph
+  -->
+  <body>
+    <header>
+      <h1>Portfolio @artbaddon 💻</h1>
+      <nav>
+        <a class="link" href="#experience">Experience</a>
+        <a class="link" href="#projects">Projects</a>
+      </nav>
+    </header>
+    <dialog id="dialog">
+      <h1>Lorem ipsum dolor sit.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <button id="hide">Close Modal</button>
+    </dialog>
+    <button id="show">See more info</button>
+    <script>
+      window.show.addEventListener("click", () => {
+        window.dialog.showModal();
+      });
+      window.hide.addEventListener("click", () => {
+        window.dialog.close();
+      });
+    </script>
+    <main>
+      <p>+1 year of experience as a <strong>Software Engineer</strong></p>
+
+      <h2 id="experience">Experience</h2>
+      <ul>
+        <li>Lorem ipsum - 2023</li>
+        <li>Lorem ipsum - 2020</li>
+        <li>Lorem ipsum - 2015</li>
+      </ul>
+      <a download href="./images/image1.jpg">
+        <img
+          src="./images/image1.jpg"
+          alt="Image of Sebastian Sotelo smiling at the camera"
+        />
+      </a>
+
+      <h2 id="projects">Projects done:</h2>
+
+      <aside>
+        <header>
+          <h3>My favorite technologies</h3>
+        </header>
+        <ol type="1" reversed start="10">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li value="5">JavaScript</li>
+          <li>Node.js</li>
+        </ol>
+      </aside>
+
+      <section>
+        <article>
+          <header>
+            <h4>Corporate Website blablabla</h4>
+          </header>
+
+          <p>
+            Development of a corporate website with a user interface modern and
+            friendly
+          </p>
+          <footer>
+            <small>Used technologies: HTML, CSS, JavaScript</small>
+          </footer>
+        </article>
+        <article>
+          <header>
+            <h4>Corporate Website blablabla</h4>
+          </header>
+
+          <p>
+            Development of a corporate website with a user interface modern and
+            friendly
+          </p>
+          <footer>
+            <small>Used technologies: HTML, CSS, JavaScript</small>
+          </footer>
+        </article>
+        <article>
+          <header>
+            <h4>Corporate Website blablabla</h4>
+          </header>
+
+          <p>
+            Development of a corporate website with a user interface modern and
+            friendly
+          </p>
+          <footer>
+            <small>Used technologies: HTML, CSS, JavaScript</small>
+          </footer>
+        </article>
+      </section>
+      <section>
+        <h2>Common asked questions</h2>
+        <details>
+          <summary>What did you study?</summary>
+          <p>I studied software engineering at the lorem university</p>
+        </details>
+        <details>
+          <summary>What hobbies do you have?</summary>
+          <ul>
+            <li>Going to the GYM</li>
+            <li>Reading Books</li>
+            <li>Playing videogames</li>
+          </ul>
+        </details>
+      </section>
+      <section>
+        <h2>Contact form</h2>
+        <form action="" method="post">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+              <label
+                >Name:
+                <input type="text" name="name" placeholder="Your name..." />
+              </label>
+            </div>
+            <div>
+              <label
+                >Email:
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="example@g123.com..."
+                />
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Aditional Information</legend>
+            <div>
+              <label
+                >Phone Number:
+                <input type="tel" name="phone" placeholder="1111..." />
+              </label>
+            </div>
+            <div>
+              <datalist id="languages">
+                <option value="JavaScript"></option>
+                <option value="Python"></option>
+                <option value="Java"></option>
+                <option value="Rust"></option>
+                <option value="C#"></option>
+              </datalist>
+              <label for="">
+                With what language do you want me to help you ?
+                <input list="languages" />
+              </label>
+            </div>
+          </fieldset>
+          <button type="sumbit">Send Contact</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      Copyright 2023 - The portfolio of SASM
+      <a href="mailto:sebarsomo@gmail.com">Send Email</a>
+      <a href="tel:+571231231231">Call me</a>
+      <a href="whatsapp://send?text=HI artbaddon">Send a message</a>
+    </footer>
+  </body>
+</html>

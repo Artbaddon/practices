@@ -1,0 +1,25 @@
+Design Systems
+Storybook
+Tailwind
+Shadcn
+CSS
+GIT
+SASS
+postcss
+NodeJs
+React
+NextJs
+Nuxt.js
+testing
+playwright E2E
+Jest - Vitest
+React-testing-libraries
+Github actions
+SupaBase
+
+express.js
+postgreSQL
+AWS: EC2, S3, Lambda, CloudFront
+Docker
+Kubernetes
+Cloudflare

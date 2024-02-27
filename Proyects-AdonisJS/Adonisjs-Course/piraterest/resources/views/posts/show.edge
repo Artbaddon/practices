@@ -1,0 +1,85 @@
+@layout('layouts/main')
+@set('title',post.title)
+
+@section('content')
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Post</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Show</li>
+        </ol>
+    </nav>
+
+    <div class="row p-4 my-4 border rounded">
+        <div class="col-12 col-md-6">
+            {{-- Image --}}
+            <img src="data:image/png;base64,{{ post.$extras.base_64_string }}" class="rounded card-img-top" alt="">
+        </div>
+        <div class="col-12 col-md-6">
+            {{-- Post Detail --}}
+            <h4>
+                Title
+                <small class="text-capitalize text-muted">{{post.title}}</small>
+            </h4>
+            <h4 class="mt-4">
+                Description
+                <small class="text-capitalize text-muted">{{post.description}}</small>
+            </h4>
+            <h4 class="mt-4">
+                Tags
+            </h4>
+            <div class="border rounded p-4">
+                @each(tag in post.tags)
+                <span class="badge rounded-pill bg-primary text-capitalize fs-6 m-1 p-2">{{tag.title}}</span>
+                @endeach
+
+            </div>
+            <div class="mt-4 d-flex">
+                <div class="ms-4">
+                    @can('PostPolicy.update', post)
+                    <a href="{{route('posts.edit', { id:post.id }) }}" class="btn btn-warning"><i
+                            class="fa-solid fa-pen-to-square"></i> Edit</a>
+
+                    @end
+
+                </div>
+                <div class="ms-4">
+                    @can('PostPolicy.delete', post)
+                    <form action="{{route('posts.destroy',{ id:post.id },{ qs: {_method:'DELETE'} }) }}" method="post"
+                        onsubmit="return confirm('Do you want to delete this post?')">
+                        {{ csrfField() }}
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                    </form>
+
+                    @end
+
+                </div>
+                <div class="ms-4">
+
+                    <a href="{{route('posts.download',{id:post.id})}}" class="btn btn-success"><i
+                            class="fa-solid fa-download"></i> Download</a>
+
+                </div>
+
+
+
+            </div>
+            <h4 class="mt-4">
+                Created By
+                <a href="{{route('profile.show',{ id: post.user.profile.id }) }}"
+                    class="text-capitalize text-danger">{{post.user.profile.full_name}}</a>
+            </h4>
+
+        </div>
+    </div>
+
+    <h4 class="mt-4 text-primary">
+        <i class="fa-solid fa-circle-nodes"></i>
+        More Related
+        <hr>
+        @!component('components/posts_list',{ posts })
+        
+    </h4>
+
+</div>
+@end

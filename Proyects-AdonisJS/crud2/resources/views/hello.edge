@@ -1,0 +1,9 @@
+{{-- @if(name)
+<p>Hello {{name}}</p>
+@else
+<p>Hello Anonymous</p>
+@endif --}}
+
+<p>
+    {{ name ? `Hello ${name}` : `Hello Anon`}}
+</p>

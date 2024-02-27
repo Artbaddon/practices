@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="main-container">
+        <div class="players-main-container">
+          <img id="diceImg" height="100" />
+          <button class="reset-btn button" id="resetBtn">
+            <h3>🔄New Game</h3>
+          </button>
+          <button class="roll-btn button" id="rollDiceBtn">
+            <h3>🎲Roll Dice</h3>
+          </button>
+          <button class="hold-btn button" id="holdBtn">
+            <h3>🔽Hold</h3>
+          </button>
+          <div class="player-container player-1 active" id="player1">
+            <h1 class="player-title">PLAYER 1</h1>
+            <h1 class="points" id="pointsP1">0</h1>
+            <div class="points-acum-container">
+              <h1 class="title-acum">Current</h1>
+              <h1 class="points-acum" id="pointsAcumP1">0</h1>
+            </div>
+          </div>
+          <div class="player-container player-2" id="player2">
+            <h1 class="player-title">PLAYER 2</h1>
+            <h1 class="points" id="pointsP2">0</h1>
+            <div class="points-acum-container">
+              <h1 class="title-acum">Current</h1>
+              <h1 class="points-acum" id="pointsAcumP2">0</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

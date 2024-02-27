@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+nav.navbar-container {
+  border: 1px solid black;
+}
+
+nav.navbar-container ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+}
+nav.navbar-container a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+.navbar-container .contact-btn {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0.5%;
+  background: none;
+}
+.logo-container {
+  border: 1px solid black;
+
+  justify-self: flex-start;
+}
+.middle-nav-items {
+
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

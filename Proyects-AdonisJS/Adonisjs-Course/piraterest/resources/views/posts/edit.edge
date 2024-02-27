@@ -1,0 +1,126 @@
+@layout('layouts/main')
+@set('title', 'Post Edit')
+
+@section('content')
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{{route('posts.show',{id: post.id})}}">Post</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+  </nav>
+
+  <div class="row justify-content-around mt-4">
+    <div class="col-12 col-md-6 col-lg-4">
+      {{-- Image Preview --}}
+      <h4 class="mb-4 fs-4 fw-bold text-center">
+        Profile Image Preview
+      </h4>
+      <div class="d-flex justify-content-between align-items-start">
+
+        <div>
+
+          <p class="text-center fs-4">Previous Image</p>
+          <img src="data:image/png;base64,{{img_base64}}" alt="" style="height:100px" class="img-thumbnail">
+
+
+        </div>
+        <div>
+          <h4 class="mb-4 fs-4 fw-bold text-center">New Image</h4>
+          <div id="img_container" class="mx-4 p-2" style="display:none;">
+            <img src="" alt="New image" class="img-thumbnail" id="preview_image" style="display:none;">
+          </div>
+          <p class="fs-4 text-center" id="image_message">Image Not Selected</p>
+
+        </div>
+
+        <div>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      {{-- --}}
+      <h4 class="mb-4 fs-4 fw-bold text-center">Edit Post</h4>
+      <form action="{{route('posts.update',{ id:post.id },{ qs: {_method:'PUT' }} ) }}" method="POST"
+        enctype="multipart/form-data">
+        {{ csrfField() }}
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control {{ flashMessages.has('errors.title') && 'is-invalid'}}"
+            id="floatingTitle" value="{{flashMessages.get('title',
+                post.title)}}" placeholder="Title" name="title">
+          <label for="floatingTitle">Post Title</label>
+          @if(flashMessages.has('errors.title'))
+          <p class="fs-6 text-danger fw-semibold">
+            {{flashMessages.get('errors.title')}}
+          </p>
+
+          @endif
+
+        </div>
+
+        <div class="form-floating mb-3">
+
+          <textarea class="form-control {{ flashMessages.has('errors.description') && 'is-invalid'}}"
+            style="height:100px" id="description" placeholder="Post description" name="description">{{flashMessages.get('description',
+                    post.description)}}</textarea>
+          <label for="floatingdescription">Post Description</label>
+          @if(flashMessages.has('errors.description'))
+          <p class="fs-6 text-danger fw-semibold">
+            {{flashMessages.get('errors.description')}}
+          </p>
+
+          @endif
+
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupFile01">Post Image</label>
+          <input type="file" class="form-control" id="inputGroupFile01" name="post_image">
+          <div>
+            @if(flashMessages.has('errors.post_image'))
+            <p class="fs-6 text-danger fw-semibold">
+              {{flashMessages.get('errors.post_image')}}
+            </p>
+            @endif
+          </div>
+
+        </div>
+
+        @!component('components/tag_input',{
+        tags:post.tags
+        })
+
+
+
+        <div class="d-grid gap-2 d-md-block mt-4 text-center">
+          <button class="btn btn-primary" type="submit">
+            <i class="fa-solid fa-square-plus fa-beat"></i>
+            Update
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(()=>{
+      $('input[type="file"]').change((e)=>{
+          const reader = new FileReader()
+          reader.onload=(e)=>{
+              $('#preview_image').css('display','block').attr('src',e.target.result)
+              $('#img_container').css('display','block')
+              $('#image_message').css('display','none')
+          }
+          const file=e.target.files[0]
+          reader.readAsDataURL(file)
+
+      })
+  })
+</script>
+@endsection

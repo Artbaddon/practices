@@ -1,0 +1,45 @@
+@layout('layouts/main')
+@set('title','Profile Page')
+
+@section('content')
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+        </ol>
+    </nav>
+
+    <div class="text-center">
+        @if(fetched_profile.storage_prefix)
+        <img src="data:image/png;base64,{{img_base64}}" alt="" style="height:300px" class="img-thumbnail">
+
+        @elseif(fetched_profile.social_auth==='google' || fetched_profile.social_auth==='github' ||
+        fetched_profile.social_auth==='facebook' )
+        <img src="{{fetched_profile.avatar_url}}" alt="fprofile photo" class="img-thumbnail">
+
+
+        <p class="fs-4 text-capitalize text-center text-danger">
+            Image not Available
+        </p>
+        @endif
+        <h4 class="mt-4 fw-bold text-capitalize text-primary">{{fetched_profile.full_name}}</h4>
+        <h5 class="mt-2 mb-3 fw-normal ">{{fetched_profile.user.email}}</h5>
+
+        @can('ProfilePolicy.update', fetched_profile)
+        <a href="{{route('profile.edit',{ id: fetched_profile.id })}}" class="btn btn-dark"><i
+                class="fa-solid fa-user-pen fa-beat"></i> Edit Profile</i></a>
+        @end
+    </div>
+    <h3 class="mt-4 text-primary">
+
+        <i class="fa-solid fa-seedling"></i>
+
+        Posts By <span><strong>{{fetched_profile.full_name}}</strong></span>
+
+    </h3>
+    <hr>
+    @!component('components/posts_list',{ posts })
+
+</div>
+@end

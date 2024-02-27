@@ -1,0 +1,73 @@
+@layout('layouts/main')
+@set('title','Sign up' )
+
+@section('content')
+<div class="container">
+    <h2 class="fs-2 fw-bold text-center my-5">Sign Up</h3>
+        <div class="row flex-column align-items-center">
+            <div class="col-12 col-md-5 col-lg-4 col-xl-3">
+                <form action="{{ route('signup') }}" method="post"> 
+                    {{ csrfField() }}
+                    <div class="form-floating mb-3">
+                        <input type="text"
+                            class="form-control {{ flashMessages.has('errors.first_name')&& 'is-invalid'}}"
+                            id="floatingName" placeholder="First Name" name="first_name" required
+                            value="{{ flashMessages.get('first_name','') }}">
+                        <label for="floatingName">First Name</label>
+                        @if(flashMessages.has('errors.first_name'))
+                        <p class="fs-5 text-danger mb-0">
+                            {{ flashMessages.get('errors.first_name') }}
+
+                        </p>
+
+                        @endif
+
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text"
+                            class="form-control {{ flashMessages.has('errors.last_name')&& 'is-invalid'}}"
+                            id="floatingLastName" placeholder="Last Name" name="last_name"
+                            value="{{ flashMessages.get('last_name','') }}" required>
+                        <label for="floatingLastName">Last Name</label>
+                        @if(flashMessages.has('errors.last_name'))
+                        <p class="fs-5 text-danger mb-0">
+                            {{ flashMessages.get('errors.last_name') }}
+
+                        </p>
+
+                        @endif
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control {{ flashMessages.has('errors.email')&& 'is-invalid'}}"
+                            id="floatingInput" placeholder="name@example.com" name="email"
+                            value="{{ flashMessages.get('email','') }}" required>
+                        <label for="floatingInput">Email address</label>
+                        @if(flashMessages.has('errors.email'))
+                        <p class="fs-5 text-danger mb-0">
+                            {{ flashMessages.get('errors.email') }}
+
+                        </p>
+
+                        @endif
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input type="password"
+                            class="form-control {{flashMessages.has('errors.password')&& 'is-invalid'  }}"
+                            id="floatingPassword" placeholder="Password" required name="password"
+                            value="{{ flashMessages.get('password','')}}">
+                        <label for="floatingPassword" name="password">Password</label>
+                        @if(flashMessages.has('errors.password'))
+                        <p class="fs-5 text-danger mb-0">
+                            {{ flashMessages.get('errors.password') }}
+
+                        </p>
+
+                        @endif
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+                </form>
+            </div>
+        </div>
+</div>
+@endsection

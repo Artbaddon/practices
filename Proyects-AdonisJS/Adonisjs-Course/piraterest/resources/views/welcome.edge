@@ -1,0 +1,10 @@
+@layout('layouts/main')
+@set('title','Index')
+
+@section('content')
+<div class="container">
+    <h2 class="text-center">All Posts</h2>
+    @!component('components/posts_list',{ posts })
+</div>
+
+@endsection

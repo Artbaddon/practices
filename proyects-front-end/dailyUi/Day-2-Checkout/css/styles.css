@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+* {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+}
+body {
+  margin: 0;
+}
+.main-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-container {
+  width: 60%;
+  height: 60vh;
+  display: grid;
+  padding: 2%;
+  border: 1px solid black;
+  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 15% repeat(2, 1fr);
+}
+
+.items-container {
+  grid-column: span 2;
+  grid-row: span 2;
+  border: 1px solid black;
+  padding: 3%;
+  border-radius: 20px;
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border: 1px solid black;
+  min-width: 200px;
+  padding: 1%;
+  min-height: 80px;
+  margin: 1%;
+}
+.item img {
+  width: 15%;
+  padding: 1%;
+  border-radius: 20px;
+
+  object-fit: fill;
+}
+.product-qty {
+  display: flex;
+  align-items: center;
+  padding: 1%;
+  justify-content: space-around;
+  width: 8%;
+  min-width: 100px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.product-qty button {
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+.product-qty button:active {
+  color: black;
+  background-color: white;
+}
+.product-information {
+  width: 70%;
+}
+.product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
+}
+.title-container {
+  border: 1px solid black;
+  grid-column: span 3;
+}
+.product-price {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.3rem;
+}
+.checkout-btn {
+  padding: 2%;
+  margin: 20px;
+  border: none;
+  background-color: rgb(117, 117, 117);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+.total-container {
+  border: 1px solid black;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+
+  grid-row: span 1;
+  height: fit-content;
+}
+.payment-methods {
+  border: 1px solid black;
+}
+.total-price {
+  display: flex;
+
+  justify-content: space-between;
+  border: 1px solid black;
+}
+@media (width <= 900px) {
+  .product-name {
+    width: 60%;
+    font-size: 1.4rem;
+  }
+  .checkout-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    width: 80%;
+    gap: 10px;
+    height: 89vh;
+  }
+  .total-container {
+    grid-row: 5/6;
+    width: 97%;
+  }
+
+  .items-container {
+    grid-row: 2/5;
+  }
+  .item img {
+    width: 80px;
+  }
+  .product-price {
+    font-size: 1.3rem;
+  }
+  .product-name {
+    font-size: 1rem;
+  }
+}
+@media (width<450px) {
+  .product-price {
+    font-size: 1rem;
+  }
+  .product-name {
+    font-size: 1rem;
+  }
+}

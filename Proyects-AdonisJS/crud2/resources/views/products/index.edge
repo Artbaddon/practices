@@ -1,0 +1,57 @@
+@layout('layouts/app')
+@section('content')
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Laravel Simple Product CRUD </h2>
+            </div>
+            <div class="pull-right mb-2">
+                <a href="/products/create" class="btn btn-success">Create Product</a>
+            </div>
+        </div>
+    </div>
+    {{--
+    @if(flashMessages.has('notification'))
+    <div class="alert alert-success">
+        <p>{{ flashMessages.get('notification')}}</p>
+    </div>
+    @endif
+    <table class="table table-bordered">
+
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th width=200px>Action</th>
+        </tr>
+        @each(product in products)
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description }}</td>
+            <td>${{product.price}}</td>
+
+            <td>
+                <a class="btn btn-primary" href="/products/{{ product.id }}/edit">Edit</a>
+                <form action="{{`/products/${product.id}?_method=DELETE`}}" method="POST">
+                    {{ csrfField() }}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @else
+        <tr>
+            <td colspan="4" class="warning">No Products Added </td>
+            <td colspan="1"><a href="/products/create" class="btn btn-success">Create Product</a> </td>
+        </tr>
+        @endeach
+    </table> --}}
+
+    <products :products="{{ stringify(products) }}">
+
+    </products>
+</div>
+
+@endsection

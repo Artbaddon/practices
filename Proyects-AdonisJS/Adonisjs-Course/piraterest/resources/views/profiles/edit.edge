@@ -1,0 +1,129 @@
+@layout('layouts/main')
+@set('title','Edit Profile' )
+
+@section('content')
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route('profile.show',{id: fetched_profile.id})}}">Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        </ol>
+    </nav>
+    <div class="row justify-content-around mt-4">
+        <div class="col-12 col-md-6 col-lg-4">
+            {{-- Image Preview --}}
+            <h4 class="mb-4 fs-4 fw-bold text-center">
+                Profile Image Preview
+            </h4>
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <p class="text-center fs-4">Previous Image</p>
+                    @if(fetched_profile.storage_prefix)
+                    <img src="data:image/png;base64,{{img_base64}}" alt="" style="height:150px" class="img-thumbnail">
+
+                    @elseif(fetched_profile.social_auth==='google' || fetched_profile.social_auth==='github' ||
+                    fetched_profile.social_auth==='facebook' )
+                    <img src="{{fetched_profile.avatar_url}}" alt="profile photo" class="img-thumbnail">
+                    @else
+
+                    <p class="fs-4 text-capitalize text-center text-danger">
+                        Image not Available
+                    </p>
+                    @endif
+                </div>
+                <div id="img_container" class="mx-4 p-2" style="display:none;">
+                    <p class="text-center fs-4">New Image</p>
+                    <img src="" alt="new image" class="img-thumbnail" id="up_image" style="display:none;">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            {{-- form Preview --}}
+            <h4 class="mb-4 fs-4 fw-bold text-center">
+                Edit Profile
+            </h4>
+            <form action="{{route('profile.update',{ id:fetched_profile.id },{ qs: {_method:'PUT' }} ) }}" method="POST"
+                enctype="multipart/form-data">
+                {{ csrfField() }}
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control {{ flashMessages.has('errors.first_name') && 'is-invalid'}}"
+                        id="floatingFirstName" value="{{flashMessages.get('first_name',fetched_profile.first_name)}}"
+                        placeholder="FIrst Name..." name="first_name">
+                    <label for="floatingFirstName">First Name</label>
+                    @if(flashMessages.has('errors.first_name'))
+                    <p class="fs-6 text-danger fw-semibold">
+                        {{flashMessages.get('errors.first_name')}}
+                    </p>
+
+                    @endif
+
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" id="floatingLastName"
+                        class="form-control {{ flashMessages.has('errors.last_name') && 'is-invalid'}}"
+                        value="{{flashMessages.get('last_name',fetched_profile.last_name)}}" placeholder="First Name..."
+                        name="last_name">
+                    <label for="floatingLastName">Last Name</label>
+                    @if(flashMessages.has('errors.last_name'))
+                    <p class="fs-6 text-danger fw-semibold">
+                        {{flashMessages.get('errors.last_name')}}
+                    </p>
+
+                    @endif
+
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupFile01">Update Image</label>
+                    <input type="file" class="form-control" id="inputGroupFile01" name="post_image">
+                    <div>
+                        @if(flashMessages.has('errors.post_image'))
+                        <p class="fs-6 text-danger fw-semibold">
+                            {{flashMessages.get('errors.post_image')}}
+                        </p>
+                        @endif
+                    </div>
+
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="password"
+                        class="form-control {{ flashMessages.has('errors.password') && 'is-invalid'}}"
+                        value="{{flashMessages.get('password','')}}" id="floatingPassword" placeholder="Password"
+                        name="password">
+                    <label for="floatingPassword">Password</label>
+                    @if(flashMessages.has('errors.password'))
+                    <p class="fs-6 text-danger fw-semibold">
+                        {{flashMessages.get('errors.password')}}
+                    </p>
+
+                    @endif
+
+                </div>
+                <div class="d-grid gap-2 d-md-block text-center">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa-solid fa-user-plus fa-beat"></i>
+                        Update
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(()=>{
+        $('input[type="file"]').change((e)=>{
+            const reader = new FileReader()
+            reader.onload=(e)=>{
+                $('#up_image').css('display','block').attr('src',e.target.result)
+                $('#img_container').css('display','block')
+            }
+            const file=e.target.files[0]
+            reader.readAsDataURL(file)
+
+        })
+    })
+</script>
+@endsection

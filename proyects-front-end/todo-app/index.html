@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TODO APP</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h2 class="title">Todo List</h2>
+      <div class="container-tasks">
+        <div class="information-container">
+          <div class="date-container" id="date">
+            <h1 class="date"></h1>
+            <h4></h4>
+          </div>
+          <div class="task-info">
+            <h2 class="number-tasks" id="number-tasks">0 Tasks</h2>
+            <i class="bx bx-plus" id="add-task-btn"></i>
+            <h4>Add More</h4>
+          </div>
+        </div>
+        <div id="tasks-container">
+          <div class="task">
+            <form>
+              <textarea name="" id=""></textarea>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dialog id="addTaskDialog">
+      <form method="dialog" id="add-task">
+        <div>
+          <label for="task-name">Task Name:</label>
+          <input type="text" name="task-name" id="task-name" required />
+          <div class="buttons">
+            <button id="cancel" type="reset">Cancel</button>
+            <button id="submit" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+    <script src="./script.js"></script>
+  </body>
+</html>

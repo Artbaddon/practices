@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@adonisjs/lucid": "^18.4.2",
+    "@popperjs/core": "^2.11.8"
+  }
+}

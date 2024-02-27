@@ -1,0 +1,36 @@
+<h1>HELLO WORLD FROM THE VIEWS!</h1>
+
+<h1>{{ title }}</h1>
+<h1>Hello {{ post.name }}</h1>
+@if(post.hidden)
+<h1>Post is hidden</h1>
+@end
+
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Hidden</th>
+    </tr>
+    {{-- Rendering Data --}}
+    @each((post, index) in posts)
+    <tr>
+        <td>{{ index }}</td>
+        <td>{{ post.name }}</td>
+        <td>
+            @if(post.hidden)
+            <p>Post is hidden</p>
+            @else
+            <p>Post is public</p>
+            @end
+        </td>
+    </tr>
+    @endeach
+</table>
+
+@each((value, key) in food)
+<p>The key is {{key}} and the value is {{value}}</p>
+@endeach
+
