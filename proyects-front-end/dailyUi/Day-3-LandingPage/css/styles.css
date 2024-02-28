@@ -1,38 +1,85 @@
 body {
   margin: 0;
-}
-nav.navbar-container {
-  border: 1px solid black;
+  font-size: 16px;
 }
 
 nav.navbar-container ul {
+  width: 100%;
+  position: absolute;
   display: flex;
   flex-direction: row;
   list-style: none;
   align-items: center;
   justify-content: space-around;
   margin: 0;
+  padding: 0 3%;
+  font-weight: bold;
 }
 nav.navbar-container a {
   text-decoration: none;
   color: black;
-  font-size: 1.3rem;
+  font-size: 1.2em;
 }
 .navbar-container .contact-btn {
   border: 1px solid black;
   border-radius: 20px;
   padding: 0.5%;
   background: none;
+  text-align: center;
 }
-.logo-container {
-  border: 1px solid black;
 
-  justify-self: flex-start;
-}
 .middle-nav-items {
-
-  width: 30%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+.hero-section {
+  border: 1px solid black;
+  padding: 10% 20%;
+  background-image: url(../css/images/bg-6.jpg);
+  background-size: cover;
+  background-position: center;
+
+}
+.hero-section h1 {
+  font-size: 2rem;
+}
+.hero-section p {
+  width: 50%;
+  font-size: 1.5rem;
+}
+.hidden {
+  display: hidden;
+  visibility: hidden;
+}
+.toggle-btn {
+  display: hidden;
+  visibility: hidden;
+}
+.logo-puck {
+  width: 100%;
+  height: auto;
+  min-width: 50px;
+  max-width: 80px;
+}
+@media (width < 800px) {
+  body {
+    font-size: 12px;
+  }
+  .middle-nav-items {
+    display: hidden;
+    visibility: hidden;
+  }
+  .toggle-btn {
+    display: block;
+    visibility: visible;
+    border: 1px solid black;
+    font-size: 2rem;
+    border: 1px solid black;
+    padding: 1%;
+    border-radius: 10px;
+    margin: 1%;
+    margin-left: 10%;
+  }
 }

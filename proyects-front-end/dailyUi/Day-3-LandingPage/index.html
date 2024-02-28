@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puck Gym</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <script src="./js/app.js"></script>
@@ -14,7 +18,10 @@
         <ul>
           <li class="logo-container">
             <a href="#"
-              ><img src="./css/images/logo.png" style="width: 100px" alt=""
+              ><img
+                src="./css/images/logo.png"
+                class="logo-puck"
+                alt="logo of puck's gym"
             /></a>
           </li>
           <div class="middle-nav-items">
@@ -24,8 +31,32 @@
           </div>
 
           <li class="contact-btn"><a href="#">CONTACT US</a></li>
+          <li>
+            <button
+              type="button"
+              title="toggle-btn"
+              class="bx bx-menu toggle-btn"
+            ></button>
+          </li>
         </ul>
       </nav>
     </header>
+    <main>
+      <section class="hero-section">
+        <h1>
+          Tired of Being Average?<br />
+          Train Like a Beast at Puck's Gym.
+        </h1>
+
+        <p>
+          No Weaklings Allowed. We push you further, harder, and help you forge
+          the strongest version of yourself.
+        </p>
+        <div class="call-to-action">
+          <button type="button">Join the Pack Now</button>
+          <button type="button">Crush Your Limits</button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
