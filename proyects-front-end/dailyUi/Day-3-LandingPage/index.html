@@ -9,40 +9,45 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/normalize.css" />
   </head>
   <body>
-    <script src="./js/app.js"></script>
-
     <header>
       <nav class="navbar-container">
-        <ul>
-          <li class="logo-container">
-            <a href="#"
-              ><img
-                src="./css/images/logo.png"
-                class="logo-puck"
-                alt="logo of puck's gym"
-            /></a>
-          </li>
-          <div class="middle-nav-items">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">GALLERY</a></li>
-            <li><a href="#">PRICES</a></li>
-          </div>
+        <a href="#home" class="logo">
+          <img
+            src="./css/images/logo.png"
+            alt="Puck's Gym Logo"
+            class="logo-puck"
+          />
+        </a>
 
-          <li class="contact-btn"><a href="#">CONTACT US</a></li>
-          <li>
-            <button
-              type="button"
-              title="toggle-btn"
-              class="bx bx-menu toggle-btn"
-            ></button>
-          </li>
+        <ul class="navigation-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#">GALLERY</a></li>
+          <li><a href="#">PRICES</a></li>
+        </ul>
+
+        <a href="#" class="contact-btn">CONTACT US</a>
+        <a href="#"><i class="bx bxs-user"></i> Login</a>
+        <button
+          type="button"
+          aria-label="Toggle Menu"
+          class="bx bx-menu toggle-btn"
+        ></button>
+      </nav>
+      <nav class="toggleable-navbar hidden">
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#">GALLERY</a></li>
+          <li><a href="#">PRICES</a></li>
+          <span class="close-nav">X</span>
         </ul>
       </nav>
     </header>
+
     <main>
-      <section class="hero-section">
+      <section class="hero-section" id="home">
         <h1>
           Tired of Being Average?<br />
           Train Like a Beast at Puck's Gym.
@@ -57,6 +62,27 @@
           <button type="button">Crush Your Limits</button>
         </div>
       </section>
+      <section class="about-us">
+        <h1>Introduce Puck's Gym</h1>
+        <div class="cards">
+          <article>
+            <h2>We're not your average gym.</h2>
+          </article>
+          <article>
+            <h2>
+              We're for the relentless, the driven, the warriors who want to
+              dominate their fitness goals.
+            </h2>
+          </article>
+          <article>
+            <h2>
+              Here we train for the difficult, the pain and self-hatred will
+              fuel your journey here, feel free to liberate all.
+            </h2>
+          </article>
+        </div>
+      </section>
     </main>
+    <script src="./js/app.js"></script>
   </body>
 </html>

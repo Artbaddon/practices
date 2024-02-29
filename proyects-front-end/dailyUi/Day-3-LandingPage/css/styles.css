@@ -1,46 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  text-decoration: none;
+  list-style-type: none;
+}
 body {
   margin: 0;
+  padding: 0;
   font-size: 16px;
+  overflow-x: hidden;
+  color: white;
 }
 
-nav.navbar-container ul {
-  width: 100%;
+/*****Styles for the navbar *****/
+.hidden {
+  display: hidden;
+  visibility: hidden;
+}
+.toggle-btn {
+  display: hidden;
+  visibility: hidden;
   position: absolute;
+}
+
+.logo-puck {
+  width: 100%;
+  height: auto;
+  min-width: 70px;
+  max-width: 80px;
+}
+
+nav.navbar-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  list-style: none;
+  position: fixed;
   align-items: center;
-  justify-content: space-around;
-  margin: 0;
-  padding: 0 3%;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  color: white;
   font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.151);
+  gap: 2%;
 }
+
 nav.navbar-container a {
   text-decoration: none;
-  color: black;
+  color: inherit;
   font-size: 1.2em;
 }
 .navbar-container .contact-btn {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 20px;
   padding: 0.5%;
   background: none;
   text-align: center;
 }
 
-.middle-nav-items {
-  width: 80%;
+.toggleable-navbar {
+  position: fixed;
+  width: 100%;
+  top: 18%;
+  animation: toggleAnim 1s ease 0s 1 normal forwards;
+  border: 1px solid black;
+  background-color: rgb(0, 0, 0);
+}
+@keyframes toggleAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.toggleable-navbar ul {
+  position: relative;
+  font-size: 1.5rem;
+  padding: 2%;
+}
+.toggleable-navbar ul a {
+  color: inherit;
+}
+.navigation-links {
+  list-style-type: none;
+  width: 35%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
+.close-nav {
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+
+/******* Styles for the hero section ***/
+
 .hero-section {
   border: 1px solid black;
-  padding: 10% 20%;
-  background-image: url(../css/images/bg-6.jpg);
+
+  padding: 120px 20%;
+  background-image: url(../css/images/bg-img.jpg);
   background-size: cover;
   background-position: center;
-
 }
 .hero-section h1 {
   font-size: 2rem;
@@ -49,37 +115,78 @@ nav.navbar-container a {
   width: 50%;
   font-size: 1.5rem;
 }
-.hidden {
-  display: hidden;
-  visibility: hidden;
+
+/*** Styles for about us section***/
+.about-us {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 4% 0;
 }
-.toggle-btn {
-  display: hidden;
-  visibility: hidden;
+.about-us h1 {
+  color: black;
 }
-.logo-puck {
+.about-us .cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-us article {
+  border: 1px solid black;
+  height: 50vh;
+  width: 30%;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 2%;
+}
+.about-us article:first-child {
+  background-image: url(./images/atlas.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about-us article:nth-child(2) {
+  background-image: url(./images/ego.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about-us article:nth-child(3) {
+  background-image: url(./images/berserkerGritando.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about-us img {
   width: 100%;
   height: auto;
-  min-width: 50px;
-  max-width: 80px;
 }
+
 @media (width < 800px) {
-  body {
-    font-size: 12px;
-  }
-  .middle-nav-items {
+  .navigation-links,
+  .contact-btn {
     display: hidden;
     visibility: hidden;
+    width: 0;
+    height: 0;
   }
   .toggle-btn {
     display: block;
     visibility: visible;
     border: 1px solid black;
-    font-size: 2rem;
-    border: 1px solid black;
-    padding: 1%;
+    font-size: 1.5rem;
+    box-sizing: border-box;
     border-radius: 10px;
-    margin: 1%;
-    margin-left: 10%;
+    position: static;
+  }
+  .about-us article {
+    width: 80%;
+  }
+  .hero-section p {
+    width: 100%;
   }
 }
