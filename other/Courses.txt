@@ -47,3 +47,5 @@ https://www.coursera.org/learn/algorithms-part1
 https://www.techiedelight.com/data-structures-and-algorithms-problems/
 https://moderncss.dev/topics/
 https://www.booklistqueen.com/best-classic-books-to-read/#:~:text=100%20Best%20Classic%20Books%20to%20Read%20Before%20You,Industrial%20Era%20Sense%20and%20Sensibility%20Jane%20Austen%20
+
+https://refactoring.guru/refactoring
