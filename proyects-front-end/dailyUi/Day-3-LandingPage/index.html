@@ -23,13 +23,24 @@
         </a>
 
         <ul class="navigation-links">
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#">GALLERY</a></li>
-          <li><a href="#">PRICES</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li>
+            <a href="#">
+              <div class="dropdown">
+                <a href class="dropbtn">Gallery</a>
+                <div class="dropdown-content">
+                  <a href="#">Facilities</a>
+                  <a href="#">Testimonials</a>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li><a href="">Prices</a></li>
         </ul>
 
-        <a href="#" class="contact-btn">CONTACT US</a>
-        <a href="#"><i class="bx bxs-user"></i> Login</a>
+        <a href="#" class="contact-btn">Contact Us</a>
+
         <button
           type="button"
           aria-label="Toggle Menu"
@@ -49,7 +60,7 @@
     <main>
       <section class="hero-section" id="home">
         <h1>
-          Tired of Being Average?<br />
+          <span> Tired of Being Average?</span><br />
           Train Like a Beast at Puck's Gym.
         </h1>
 
@@ -62,23 +73,51 @@
           <button type="button">Crush Your Limits</button>
         </div>
       </section>
-      <section class="about-us">
-        <h1>Introduce Puck's Gym</h1>
-        <div class="cards">
-          <article>
-            <h2>We're not your average gym.</h2>
+      <section class="about-us" id="about-us">
+        <h1>Why choose Puck's Gym?</h1>
+
+        <h2>Don't Settle for Average. Train for the Difficult.</h2>
+
+        <div class="icon-cards-container">
+          <article class="icon-card">
+            <i class="bx bx-dumbbell"></i>
+            <h3>Challenge Accepted</h3>
+            <p>
+              We design programs that push your limits, not coddle them. Build
+              real strength and power to conquer any workout.
+            </p>
           </article>
-          <article>
-            <h2>
-              We're for the relentless, the driven, the warriors who want to
-              dominate their fitness goals.
-            </h2>
+          <article class="icon-card">
+            <i class="bx bxs-brain"></i>
+            <h3>Mental Grit</h3>
+            <p>
+              Training for the difficult isn't just physical. We build mental
+              toughness and focus for success inside and outside the gym.
+            </p>
           </article>
-          <article>
-            <h2>
-              Here we train for the difficult, the pain and self-hatred will
-              fuel your journey here, feel free to liberate all.
-            </h2>
+          <article class="icon-card">
+            <i class="bx bxs-trophy"></i>
+            <h3>Breakthrough Results</h3>
+            <p>
+              Average results come from average training. We go beyond, helping
+              you achieve the breakthroughs you crave.
+            </p>
+          </article>
+          <article class="icon-card">
+            <i class="bx bx-group"></i>
+            <h3>Strong Together</h3>
+            <p>
+              Our supportive community motivates and pushes you. We train hard,
+              but we never train alone.
+            </p>
+          </article>
+          <article class="icon-card">
+            <i class="bx bxs-rocket"></i>
+            <h3>Reach Your Potential</h3>
+            <p>
+              There's no limit to what you can achieve. We'll guide you to
+              unlock your true fitness potential and reach new heights.
+            </p>
           </article>
         </div>
       </section>
